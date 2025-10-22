@@ -35,11 +35,16 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use("/", (req, res) => {
+  res.send("Api is working")
+})
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/schools", schoolRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/courses", coursRoutes);
+
 
 // error handling
 app.use(notFound);
